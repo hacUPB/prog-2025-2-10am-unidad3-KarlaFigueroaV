@@ -1,14 +1,15 @@
 # Tarea
 ## Tabla comandos aritmeticos
-| Operador | Explicación                          |
-| -------- | ------------------------------------ |
-| +    | Suma                                 |
+| Operador | Explicación                        |
+| -------- | --------------------------------   |
+| +    | Suma                                   |
 | -      | Resta                                |
 | *      | Multiplicación                       |
 | /      | División decimal                     |
 | //     | División entera (descarta decimales) |
 | %      | Módulo (residuo)                     |
 | **     | Potencia                             |
+|=       | Asignación                           |
  
  ## Tabla comandos relacionales
 | Operador | Explicación   |

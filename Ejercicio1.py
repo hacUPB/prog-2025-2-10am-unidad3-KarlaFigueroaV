@@ -40,4 +40,4 @@ elif imc < 40:
 else:
     mensaje = "Obesidad extrema"
 
-print(f"Paciente {nombre}, tiene un IMC de {imc} y su condición de {mensaje}.")
+print(f"Paciente {nombre}, tiene un IMC de {imc:0.2f} y su condición de {mensaje}.")
