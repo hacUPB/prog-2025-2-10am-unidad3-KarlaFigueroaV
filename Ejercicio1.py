@@ -28,4 +28,16 @@ else:
             else:
                 if imc >= 40:
                     print("Clasificación Obesidad Extrema III")
-                    
+
+if imc < 18.5:
+    mensaje = "Bajo peso"
+elif imc < 25:
+    mensaje = "Peso normal"
+elif imc < 35:
+    mensaje = "Obesidad tipo 1"
+elif imc < 40:
+    mensaje = "Obesidad tipo 2"
+else:
+    mensaje = "Obesidad extrema"
+
+print(f"Paciente {nombre}, tiene un IMC de {imc} y su condición de {mensaje}.")
