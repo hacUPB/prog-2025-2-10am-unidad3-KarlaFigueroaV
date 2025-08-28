@@ -2,11 +2,12 @@
 
 control = True
 
-while control == True:
+while True:
     num1 = int(input ("Ingrese el primer numero"))
     num2 = int(input ("Ingrese el segundo numero"))
-    print("S. Sumar\nR. Restar\nM. Multiplicar\nD. Dividir\nE. Salir")
-    opcion = input("Elija una opción: ")
+    print("S. Sumar\nR. Restar\nM. Multiplicar\nD. Dividir\nP. Potencia\nE. Salir")
+    opcion = input("Elija una opción: ")   
+    opcion = opcion.upper()
     match opcion:
         case 'S':
             print("Suma")
@@ -20,8 +21,11 @@ while control == True:
         case 'D':
             print("División")
             resultado = num1 / num2 
+        case 'P':
+            print("Potenciación")
+            resultado = num1 ** num2
         case 'E':
-            control = False
+            break
         case _:
             print("Opción inválida.")
     print(f"Resultado = {resultado}")
