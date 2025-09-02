@@ -1,6 +1,5 @@
-# Programa para generar la serie de Fibonacci
+# Tarea Fibbonacci
 
-# Solicitar al usuario el número de términos
 num = int(input("Ingrese un número entero para generar la serie de Fibonacci: "))
 
 # Validar el número ingresado
