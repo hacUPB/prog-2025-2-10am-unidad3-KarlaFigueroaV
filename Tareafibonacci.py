@@ -2,7 +2,6 @@
 
 num = int(input("Ingrese un número entero para generar la serie de Fibonacci: "))
 
-# Validar el número ingresado
 if num <= 0:
     print("Por favor, ingrese un número entero positivo.")
 elif num == 1:
