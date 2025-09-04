@@ -12,6 +12,12 @@ opcion = int(input("Selecciona una opción: "))
 match opcion:
     case 1:
         print("Límite de ángulo de ataque")
+        Angulo = int(input("ingrese el angulo de ataque"))
+        lim1 = 0
+        lim2 = 18
+        while:
+            if lim1 < angulo < lim2:
+            print("precaucion has superado el limite del angulo de ataque")
     case 2:
         print("Peso y balance")
     case 3:
