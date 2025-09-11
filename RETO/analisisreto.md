@@ -13,54 +13,29 @@ Cálculo de coeficiente de sustentación:
 
 cl = Cl0 + adeg * angulo
 
-## Peso y balance
-Aquí el usuario va agregando peso al avión: pasajeros, carga o combustible. Con cada carga se recalcula el peso total y la posición del centro de gravedad (CG). Si el CG está dentro del rango permitido, el avión está balanceado y puede volar estable. Pero si queda fuera, se muestra una advertencia de que el avión es inestable y existe riesgo de pérdida de control. 
-
-| Variable          | Tipo       | Descripción                                          |
-| ----------------- | ---------- | ---------------------------------------------------- |
-| peso_total      | Intermedia | Masa total acumulada del avión                       |
-|momento_total   | Intermedia | Suma de los momentos (masa × brazo)                  |
-| cg              | Intermedia | Centro de gravedad calculado                         |
-| limite_inferior | Constante  | Límite inferior del CG                               |
-| limite_superior | Constante  | Límite superior del CG                               |
-| estado          | Salida     | Estado: “balanceado” o “inestable”                   |
-| opcion          | Entrada    | Tipo de carga añadida (pasajero, carga, combustible) |
-| n | Contador | Cuenta la cantidad de elementos agregadpos al avion|
-
-Se utilizara:
-
-peso_total = peso_total + masa_nueva
-momento_total = momento_total + (masa_nueva \ brazo_nuevo)
-cg = momento_total / peso_total
-
 ### Pseudocódigo
 ```
 Inicio
-   peso_total = 0
-   momento_total = 0
-   limite_inferior = 10
-   limite_superior = 20
-   n = 0
+   Leer angulo
+   limite = 15
+   t = 0
    Mientras Verdadero
-       Escribir "1. Pasajero  2. Carga  3. Combustible  4. Terminar"
+       cl = Cl0 + a_deg * angulo
+       Si angulo > limite Entonces
+           Escribir "¡Pérdida! Ángulo supera el límite"
+           Salir
+       Si no
+           Escribir "Vuelo seguro. cl =", cl
+       Fin si
+       Escribir "1. Aumentar ángulo, 2. Mantener, 3. Salir"
        Leer opcion
-       Si opcion = 4 Entonces
+       Si opcion = 1 Entonces
+           angulo = angulo + 1
+       Si opcion = 3 Entonces
            Salir
        Fin si
-       Leer masa_nueva
-       Leer brazo_nuevo
-       peso_total = peso_total + masa_nueva
-       momento_total = momento_total + (masa_nueva * brazo_nuevo)
-       cg = momento_total / peso_total
-       n = n + 1
-       Escribir "Elemento agregado número:", n
-       Escribir "Peso total:", peso_total
-       Escribir "Centro de gravedad:", cg
-       Si cg >= limite_inferior Y cg <= limite_superior Entonces
-           Escribir "Avión balanceado"
-       Si no
-           Escribir "Avión inestable"
-       Fin si
+       t = t + 1
+       Escribir "Tiempo de simulación:", t, "segundos"
    Fin mientras
 Fin
 ```
@@ -84,6 +59,45 @@ Se utilizará
 combustible = combustible - consumo
 reserva_kg = reserva_min * consumo_conservador
 
+### Pseudocódigo
+```
+Inicio
+   consumo_ascenso = 5
+   consumo_crucero = 3
+   consumo_descenso = 2
+   reserva_min = 30
+   consumo_conservador = 3
+   reserva_kg = reserva_min * consumo_conservador
+   Leer combustible_inicial
+   Leer tiempo_vuelo
+   combustible = combustible_inicial
+   minuto = 0
+   Mientras minuto < tiempo_vuelo
+       Escribir "Ingrese fase (1. Ascenso  2. Crucero  3. Descenso)"
+       Leer fase
+       Si fase = 1 Entonces
+           consumo = consumo_ascenso
+       Si fase = 2 Entonces
+           consumo = consumo_crucero
+       Si fase = 3 Entonces
+           consumo = consumo_descenso
+       Fin si
+       combustible = combustible - consumo
+       minuto = minuto + 1
+       Escribir "Minuto:", minuto, "Combustible restante:", combustible
+       Si combustible <= 0 Entonces
+           Escribir "Emergencia: combustible agotado"
+           Salir
+       Fin si
+   Fin mientras
+   Si combustible >= reserva_kg Entonces
+       Escribir "Vuelo completado con reserva"
+   Si no
+       Escribir "Vuelo completado sin reserva suficiente"
+   Fin si
+Fin
+
+```
 
 
 ## DECLARACIÓN USO DE IA
