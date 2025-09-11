@@ -10,7 +10,7 @@
 | Al menos un bucle (variable de control, condición de parada) | 2| Se presentan todos los pseudocódigos de los problemas y se verifico que uno funcionara  |
 | Al menos una sentencia condicional significativa | 2 | Se presentan todos los pseudocódigos de los problemas y se verifico que uno funcionara  |
 | Menú repetitivo hasta “Salir” | 2 | Se estableción un menú completo ene el archivo de python |
-| Sin listas, diccionarios, tuplas ni sets |  |  |
+| Sin listas, diccionarios, tuplas ni sets | 2 | No se utilizó |
 | Declaración de uso de IA (si aplica) | 2 | Se especificó que solo fue utilizada para el planteamiento ya yuda a la creatividad para los problemas |
 
 ## Verificación pseudocódigo #2
