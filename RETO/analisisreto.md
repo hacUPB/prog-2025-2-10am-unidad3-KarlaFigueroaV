@@ -39,6 +39,70 @@ Inicio
    Fin mientras
 Fin
 ```
+## Peso y balance 
+Aquí el usuario va agregando peso al avión: pasajeros, carga o combustible. Con cada carga se recalcula el peso total y la posición del centro de gravedad (CG).
+Si el CG está dentro del rango permitido, el avión está balanceado y puede volar estable. Pero si queda fuera, se muestra una advertencia de que el avión es inestable y existe riesgo de pérdida de control.
+Este problema permite comprender la importancia del balance en la estabilidad del vuelo.
+
+| Variable        | Clasificación | Descripción                                               |
+| --------------- | ------------- | --------------------------------------------------------- |
+| masa_nueva    | Entrada       | Peso del elemento agregado (pasajero, carga, combustible) |
+| brazo_nuevo   | Entrada       | Brazo correspondiente al elemento agregado                |
+| peso_total    | Intermedia    | Suma acumulada del peso total del avión                   |
+| momento_total | Intermedia    | Suma acumulada de los momentos (masa × brazo)             |
+| cg            | Salida        | Centro de gravedad calculado                              |
+| rango_min     | Constante     | Límite inferior permitido para el centro de gravedad      |
+| rango_max     | Constante     | Límite superior permitido para el centro de gravedad      |
+| estado        | Salida        | Estado del avión: "Balanceado" o "Inestable"              |
+| n             | Contador      | Número de elementos agregados                             |
+
+Peso total del avión:
+
+peso_total=peso_total+masa_nueva
+
+Momento total:
+
+momento_total=momento_total+(masa_nueva×brazo_nuevo)
+
+Centro de gravedad (CG):
+
+
+cg=
+peso_total/
+momento_total
+	​
+
+### Pseudocódigo 
+```
+Inicio
+   peso_total = 0
+   momento_total = 0
+   limite_inferior = 10
+   limite_superior = 20
+   n = 0
+   Mientras Verdadero
+       Escribir "1. Pasajero  2. Carga  3. Combustible  4. Terminar"
+       Leer opcion
+       Si opcion = 4 Entonces
+           Salir
+       Fin si
+       Leer masa_nueva
+       Leer brazo_nuevo
+       peso_total = peso_total + masa_nueva
+       momento_total = momento_total + (masa_nueva * brazo_nuevo)
+       cg = momento_total / peso_total
+       n = n + 1
+       Escribir "Elemento agregado número:", n
+       Escribir "Peso total:", peso_total
+       Escribir "Centro de gravedad:", cg
+       Si cg >= limite_inferior Y cg <= limite_superior Entonces
+           Escribir "Avión balanceado"
+       Si no
+           Escribir "¡Avión inestable!"
+       Fin si
+   Fin mientras
+Fin
+```
 
 ## Plan de vuelo con reserva de combustible
 En este caso se simula un vuelo considerando el consumo de combustible. El usuario ingresa la cantidad inicial y el tiempo que durará el vuelo. Luego, minuto a minuto, el programa descuenta combustible según la fase de vuelo (ascenso, crucero o descenso). Al final se revisa si, además de llegar al destino, quedó la reserva mínima (por ejemplo 30 minutos extra). Si la reserva no alcanza, aparece una alerta de emergencia. 
