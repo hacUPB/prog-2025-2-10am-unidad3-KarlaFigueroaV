@@ -7,14 +7,14 @@ Cl como aproximación al fenómeno de la pérdida. Cada iteración equivale a un
 El flujo del programa está guiado por un bucle infinito que repite el proceso hasta que se decida salir o se alcance la pérdida, y por condicionales que permiten decidir la acción del usuario, además de una validación que detecta el exceso de ángulo. Todo esto se desarrolla dentro de la función limite_angulo(), que integra los cálculos, las decisiones y la interacción con el usuario.
 
 #### Tabla de variables y constantes
-| Nombre | Tipo | Descripción | Valor inicial |
-|--------|------|-------------|---------------|
-| angulo | Variable de entrada/control | Ángulo de ataque del avión | Usuario |
-| limite | Constante | Ángulo máximo seguro antes de pérdida | 15 |
-| Cl0 | Constante | Coeficiente de sustentación inicial | 0.4 |
-| a_deg | Constante | Pendiente de la curva de sustentación | 0.1 |
-| cl | Variable de salida | Coeficiente de sustentación resultante | Calculado |
-| t | Variable de control | Tiempo de simulación en segundos | 0 |
+| Nombre | Tipo | Descripción |
+|--------|------|-------------|
+| angulo | Variable de entrada/control | Ángulo de ataque del avión | 
+| limite | Constante | Ángulo máximo seguro antes de pérdida | 
+| Cl0 | Constante | Coeficiente de sustentación inicial | 
+| a_deg | Constante | Pendiente de la curva de sustentación | 
+| cl | Variable de salida | Coeficiente de sustentación resultante |
+| t | Variable de control | Tiempo de simulación en segundos |
 
 #### Pseudocódigo
 ```
