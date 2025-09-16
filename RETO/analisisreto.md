@@ -25,11 +25,14 @@ Inicio
    a_deg = 0.1
    t = 0
    Mientras Verdadero
-       cl = Cl0 + a_deg * angulo
-       Escribir "Ángulo actual:", angulo, "Cl:", cl
        Si angulo > limite Entonces
+           cl = 1.9 - 0.1 * (angulo - limite)
            Escribir "¡Pérdida! Ángulo supera el límite"
+           Escribir "Ángulo actual:", angulo, "Cl:", cl
            Salir
+       Si no
+           cl = Cl0 + a_deg * angulo
+           Escribir "Ángulo actual:", angulo, "Cl:", cl
        Fin si
        Escribir "1. Aumentar, 2. Mantener, 3. Nuevo ángulo, 4. Salir"
        Leer opcion
@@ -38,9 +41,10 @@ Inicio
        Si opcion = 2 Entonces
            Escribir "Manteniendo ángulo"
        Si opcion = 3 Entonces
-           Leer nuevo angulo
-           angulo = nuevo angulo
+           Leer nuevo_angulo
+           angulo = nuevo_angulo
        Si opcion = 4 Entonces
+           Escribir "Simulación finalizada"
            Salir
        Fin si
        t = t + 1
