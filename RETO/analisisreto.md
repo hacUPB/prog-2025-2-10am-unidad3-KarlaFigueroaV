@@ -131,18 +131,18 @@ Este ejercicio es relevante porque la gestión del combustible es crítica en la
 
 
 #### Tabla de variables y constantes
-| Nombre | Tipo | Descripción | Valor inicial |
-|--------|------|-------------|---------------|
-| combustible_inicial | Variable de entrada | Combustible al inicio | Usuario |
-| tiempo_vuelo | Variable de entrada | Duración total del vuelo en minutos | Usuario |
-| combustible | Variable de control/salida | Combustible restante | combustible_inicial |
-| minuto | Variable de control | Tiempo transcurrido | 0 |
-| consumo_ascenso | Constante | Consumo de combustible por minuto en ascenso | 5 |
-| consumo_crucero | Constante | Consumo de combustible por minuto en crucero | 3 |
-| consumo_descenso | Constante | Consumo de combustible por minuto en descenso | 2 |
-| reserva_min | Constante | Minutos mínimos de reserva | 30 |
-| consumo_conservador | Constante | Consumo usado para calcular reserva mínima | 3 |
-| reserva_kg | Constante | Reserva mínima en kg | 90 |
+| Nombre | Tipo | Descripción | 
+|--------|------|-------------|
+| combustible_inicial | Variable de entrada | Combustible al inicio | 
+| tiempo_vuelo | Variable de entrada | Duración total del vuelo en minutos | 
+| combustible | Variable de control/salida | Combustible restante | 
+| minuto | Variable de control | Tiempo transcurrido | 
+| consumo_ascenso | Constante | Consumo de combustible por minuto en ascenso | 
+| consumo_crucero | Constante | Consumo de combustible por minuto en crucero | 
+| consumo_descenso | Constante | Consumo de combustible por minuto en descenso | 
+| reserva_min | Constante | Minutos mínimos de reserva | 
+| consumo_conservador | Constante | Consumo usado para calcular reserva mínima | 
+| reserva_kg | Constante | Reserva mínima en kg | 
 
 ### Fórmula
 combustible = combustible - consumo
